@@ -42,7 +42,10 @@ st.markdown("""
 <style>
     [data-testid=stSidebar] {
         background-color: #40e0d0;
-        
+        .nav-link active{
+        background-color: #40e0d0;
+        }
+            
 
     }
 </style>
