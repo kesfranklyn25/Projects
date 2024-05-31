@@ -52,6 +52,16 @@ st.markdown("""
 # side menu background color ends here
 
 # Create a sidebar menu for the models
+
+st.markdown("""
+<style>
+    .menu .nav-item .nav-link.active[data-v-5af006b8]
+    {
+        background-color: #40e0d0;
+
+    }
+</style>
+""", unsafe_allow_html=True)
 with st.sidebar:
     selection = option_menu('Menu', 
                             ['DT Prediction',
