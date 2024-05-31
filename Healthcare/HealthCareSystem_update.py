@@ -7,9 +7,9 @@ from streamlit_option_menu import option_menu
 
 # Load models
 
-dt = pickle.load(open('dt.sav','rb'))
-rf = pickle.load(open('rf.sav','rb'))
-svm = pickle.load(open('svm.sav','rb'))
+dt = pickle.load(open('Healthcare/dt.sav','rb'))
+rf = pickle.load(open('Healthcare/rf.sav','rb'))
+svm = pickle.load(open('Healthcare/svm.sav','rb'))
 
 # Models loading ends here.
 
