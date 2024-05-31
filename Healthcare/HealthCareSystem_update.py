@@ -16,7 +16,7 @@ svm = pickle.load(open('Healthcare/svm.sav','rb'))
 # Set the title page of the web app page
 st.set_page_config(
     page_title= 'Healthcare System - Diabetes Prediction',
-    page_icon='tree-fill'
+    page_icon=':tree-fill:'
     
     )
 # Title page ends here
