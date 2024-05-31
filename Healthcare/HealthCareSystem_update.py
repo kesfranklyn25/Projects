@@ -42,7 +42,7 @@ st.markdown("""
 <style>
     [data-testid=stSidebar] {
         background-color: #40e0d0;
-        .nav.nav-pills.mb-auto.flex-column {
+        .a.nav.nav-pills.mb-auto.flex-column {
             background-color: #40e0d0;
         }
         background-color: ;
