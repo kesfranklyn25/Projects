@@ -1,0 +1,4 @@
+[theme]
+base="light"
+primaryColor="#40e0d0"
+font="serif"
