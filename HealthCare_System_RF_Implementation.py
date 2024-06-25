@@ -54,7 +54,7 @@ st.markdown("""
 
 # Create a sidebar menu for the models
 <style>
-.menu .nav-item .nav-link.active[data-v-5af006b8] {
+.menu .nav-item .nav-link.active {
     background-color: #40e0d0;
 </style>
 with st.sidebar:
