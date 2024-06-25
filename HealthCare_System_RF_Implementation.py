@@ -53,11 +53,17 @@ st.markdown("""
 # side menu background color ends here
 
 # Create a sidebar menu for the models
-<style>
-.menu .nav-item .nav-link.active {
-    background-color: #40e0d0;
-</style>
+
 with st.sidebar:
+    st.markdown("""
+<style>
+    [data-testid=stSidebar] {
+        background-color: #40e0d0;
+        
+
+    }
+</style>
+""", unsafe_allow_html=True)
     selection = option_menu('Menu', 
                             ['RF Prediction'],
                             icons = ['tree-fill'],
