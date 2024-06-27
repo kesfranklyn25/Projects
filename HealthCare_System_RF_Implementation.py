@@ -5,7 +5,7 @@ import streamlit as st
 import pickle
 from streamlit_option_menu import option_menu
 from PIL import Image
-img = Image.open('C:/Users/Fatima/Desktop/HealthCare/salford.png')
+img = Image.open('salford.png')
 # st.beta
 
 
@@ -19,7 +19,7 @@ st.set_page_config(
 st.image(img, width=150)
 # Title page ends here
 # Load models
-rf = pickle.load(open('C:/Users/Fatima/Desktop/HealthCare/rf.sav','rb'))
+rf = pickle.load(open(rf.sav','rb'))
 # Models loading ends here.
 
 
