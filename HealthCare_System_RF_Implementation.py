@@ -80,7 +80,7 @@ if selection == 'RF Prediction':
     col1, col2 = st.columns(2)
     # Get user data for prediction
     with col1:
-        Glucose = st.number_input('No of Pregnacies', min_value=0, key='Glucose')
+        Glucose = st.number_input('Glucose Level', min_value=0, key='Glucose')
         BloodPressure = st.number_input('Blood Pressure Level', min_value=0, key='BloodPressure')
 
     with col2:
