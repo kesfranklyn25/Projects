@@ -19,7 +19,7 @@ st.set_page_config(
 st.image(img, width=150)
 # Title page ends here
 # Load models
-rf = pickle.load(open(rf.sav','rb'))
+rf = pickle.load(open('rf.sav','rb'))
 # Models loading ends here.
 
 
