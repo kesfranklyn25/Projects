@@ -53,7 +53,7 @@ st.markdown("""
 # Create a sidebar menu for the models
 with st.sidebar:
     selection = option_menu('Menu',
-                            ['How To Use','Get Glucose Level', 'BMI Computation', 'Diabetes Diagnosis'],
+                            ['How To Use','Get Glucose Level', 'BMI Calculation', 'Diabetes Diagnosis'],
                              default_index=0)
     # st.write('Welcome to the Healthcare System - Diabetes Prediction application! \
     #          This app is designed to provide a quick and efficient way to assess \
@@ -65,7 +65,7 @@ with st.sidebar:
 # Initialize bmi_value
 bmi_value = 0
 if selection == 'How To Use':
-    st.write('Welcome to AIDScanner (Artificial Intelligence Diabetes Scanner) App.\n\
+    st.write('Welcome to AIDScanner (Artificial Intelligence Diabetes Scanner) App.\
              This web application helps you understand your diabetes status \
             through various features. The app consists of four main sections, \
             accessible via the menu on the left side of the page:')
