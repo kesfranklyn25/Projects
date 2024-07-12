@@ -12,11 +12,11 @@ from streamlit_option_menu import option_menu
 from PIL import Image
 
 # Load the image
-img = Image.open('salford.png')
+img = Image.open('AIDScanner_Logo.png')
 
 # Set the title page of the web app page
 st.set_page_config(
-    page_title='Healthcare System - Diabetes Diagnosis',
+    page_title='AIDScanner - A Diabetes Detection App.',
     page_icon=img
 )
 
@@ -32,7 +32,7 @@ gluco_dt = pickle.load(open('gluco_dt.sav', 'rb'))
 st.markdown("""
     <style>
         .eyeqlp51.st-emotion-cache-1pbsqtx.ex0cdmw0 {
-            # visibility: hidden;
+            visibility: hidden;
         }
         .st-emotion-cache-1wbqy5l {
             visibility: hidden;
@@ -45,7 +45,7 @@ st.markdown("""
 st.markdown("""
     <style>
         [data-testid=stSidebar] {
-            background-color: #000;
+            background-color: #13202c;
         }
     </style>
     """, unsafe_allow_html=True)
@@ -87,15 +87,15 @@ if selection == 'How To Use':
             # * 
             # * 
             # * 
-            # The How to Use page is where you are currently. The Get Glucose Level\
-            # is the page that helps in estimating patient\'s glucose level if not known\
+            # The How to use page is where you are currently. The Get Glucose Level\
+            # is the page that helps in estimating patients glucose level if not known\
             # by the patient, this is inputted into the Glucose field in the\
             # Diabetes Diagnosis page to be able to predict the diabetes status\
             # of patients')
 # Glucose Computation
 elif selection == 'Get Glucose Level':
     html_temp = """
-    <div style="background:#000 ;padding:10px">
+    <div style="background:#13202c ;padding:10px">
     <h2 style="color:white;text-align:center;">Glucose Level Computation</h2>
     </div>
     """
@@ -123,7 +123,7 @@ elif selection == 'Get Glucose Level':
 elif selection == 'BMI Computation':
     # Give the page a title
     html_temp = """
-    <div style="background:#000 ;padding:10px">
+    <div style="background:#13202c ;padding:10px">
     <h2 style="color:white;text-align:center;">Body Mass Index Computation</h2>
     </div>
     """
@@ -144,7 +144,7 @@ elif selection == 'BMI Computation':
 else:
     # Give the page a title
     html_temp = """
-    <div style="background:#000 ;padding:10px">
+    <div style="background:#13202c ;padding:10px">
     <h2 style="color:white;text-align:center;">Welcome to AIDScanner! </h2>
     </div>
     """
@@ -177,7 +177,7 @@ else:
 # Disclaimer
 
 disclaimer_temp = """
-<div style="background:#000; padding:10px; margin-top:20px; border-top: 1px solid #ddd;">
+<div style="background:#13202c; padding:10px; margin-top:20px; border-top: 1px solid #ddd;">
 <h4 style="color:#fff;text-align:center;">Disclaimer</h4>
 <p style="color:#fff;text-align:center;">
 This application predicts the likelihood of diabetes based on the given parameters.
