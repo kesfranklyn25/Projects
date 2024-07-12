@@ -35,8 +35,8 @@ st.markdown("""
             visibility: hidden;
         }
         .st-emotion-cache-1wbqy5l {
-            visibility: hidden;
-            position: None;
+            # visibility: hidden;
+            # position: None;
         }
     </style>
     """, unsafe_allow_html=True)
@@ -69,9 +69,8 @@ if selection == 'How To Use':
              This web application helps you understand your diabetes status \
             through various features. The app consists of four main sections, \
             accessible via the menu on the left side of the page:')
-    lst = ['How to Use (You are here):\
-           This guide explains how to navigate and utilize the app\'s features \
-            effectively.',
+    lst = ['How to Use:\
+           This guide explains how to navigate and utilize the app effectively.',
            'Get Glucose Level: Use this section to estimate your glucose level \
             if you do not know it. Input the required information, and\
             the app will compute it.', 'BMI Computation: \
