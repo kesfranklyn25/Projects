@@ -181,11 +181,9 @@ disclaimer_temp = """
 <div style="background:#000; padding:10px; margin-top:20px; border-top: 1px solid #ddd;">
 <h4 style="color:#fff;text-align:center;">Disclaimer</h4>
 <p style="color:#fff;text-align:center;">
-This application estimates the likelihood of diabetes based on the given parameters.
+This application predicts the likelihood of diabetes based on the given parameters.
 However, it is not a substitute for professional medical advice, diagnosis, or treatment.
-Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
-Please don't ignore professional medical advice or delay in seeking it because of something you have read on this application.
-Visit your hospital today to confirm your results. Thank you!
+Always seek the advice of your physician or other qualified health providers with any questions you may have regarding diabetes.
 </p>
 </div>
 """
