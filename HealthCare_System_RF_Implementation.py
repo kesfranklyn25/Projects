@@ -25,6 +25,7 @@ st.image(img, width=150)
 
 # Load models
 rf = pickle.load(open('rf.sav', 'rb'))
+gluco_dt = pickle.load(open('gluco_dt.sav', 'rb'))
 
 # Hide the visibility of the deploy/share and the settings menu on the top right
 # corner of the web app page
@@ -44,7 +45,7 @@ st.markdown("""
 st.markdown("""
     <style>
         [data-testid=stSidebar] {
-            background-color: #40e0d0;
+            background-color: #000;
         }
     </style>
     """, unsafe_allow_html=True)
@@ -52,24 +53,78 @@ st.markdown("""
 # Create a sidebar menu for the models
 with st.sidebar:
     selection = option_menu('Menu',
-                            ['BMI Computation', 'Diabetes Diagnosis'],
-                            icons=['tree-fill'],
-                            default_index=1)
-    st.write('Welcome to the Healthcare System - Diabetes Prediction application! \
-             This app is designed to provide a quick and efficient way to assess \
-             the likelihood of diabetes based on readily available health parameters. \
-             Our goal is to leverage advanced machine learning techniques to offer \
-             accurate predictions, helping individuals make informed decisions \
-             about their health.')
+                            ['How To Use','Get Glucose Level', 'BMI Computation', 'Diabetes Diagnosis'],
+                             default_index=0)
+    # st.write('Welcome to the Healthcare System - Diabetes Prediction application! \
+    #          This app is designed to provide a quick and efficient way to assess \
+    #          the likelihood of diabetes based on readily available health parameters. \
+    #          Our goal is to leverage advanced machine learning techniques to offer \
+    #          accurate predictions, helping individuals make informed decisions \
+    #          about their health.')
 
 # Initialize bmi_value
 bmi_value = 0
+if selection == 'How To Use':
+    st.write('Welcome to AIDScanner (Artificial Intelligence Diabetes Scanner)!\n\
+             This web application helps you understand your diabetes status \
+            through various features. The app consists of four main sections, \
+            accessible via the menu on the left side of the page:')
+    lst = ['How to Use (You are here):\
+           This guide explains how to navigate and utilize the app\'s features \
+            effectively.',
+           'Get Glucose Level: Use this section to estimate your glucose level \
+            if you do not know it. Input the required information, and\
+            the app will compute it.', 'BMI Computation: \
+            This tool calculates your Body Mass Index (BMI) if you do not know \
+            it. Enter your height and weight, and the app will compute your BMI\
+            for you.', 'Diabetes Diagnosis: This is the main feature of the app. \
+            Here, you can get a diagnosis of your diabetes status based on the \
+            information you provide. Follow the prompts to input your details \
+            and receive an assessment.']
+
+    for i in lst:
+        st.markdown("- " + i)
+            # * 
+            # * 
+            # * 
+            # * 
+            # The How to Use page is where you are currently. The Get Glucose Level\
+            # is the page that helps in estimating patient\'s glucose level if not known\
+            # by the patient, this is inputted into the Glucose field in the\
+            # Diabetes Diagnosis page to be able to predict the diabetes status\
+            # of patients')
+# Glucose Computation
+elif selection == 'Get Glucose Level':
+    html_temp = """
+    <div style="background:#000 ;padding:10px">
+    <h2 style="color:white;text-align:center;">Glucose Level Computation</h2>
+    </div>
+    """
+    st.markdown(html_temp, unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    # Get user data for glucose estimation
+    with col1:
+        # Glucose = st.number_input('Glucose', min_value=0.0, key='Glucose')
+        BloodPressure = st.number_input('Blood Pressure Level *', min_value=0.0, key='BloodPressure')
+
+    with col2:
+        BMI = st.number_input('Body Mass Index *', min_value=0.0, key='BMI')
+        Age = st.number_input('Age *', min_value=16, key='Age')
+    glucose_estimate = 0
+    with col2:
+        if st.button('Compute'):
+            glucose_estimate = int(gluco_dt.predict([[BloodPressure, BMI, Age]]))
+            # prediction = glucose
+
+    with col1:
+        st.success(glucose_estimate)
+
 
 # BMI Computation
-if selection == 'BMI Computation':
+elif selection == 'BMI Computation':
     # Give the page a title
     html_temp = """
-    <div style="background:#40e0d0 ;padding:10px">
+    <div style="background:#000 ;padding:10px">
     <h2 style="color:white;text-align:center;">Body Mass Index Computation</h2>
     </div>
     """
@@ -90,8 +145,8 @@ if selection == 'BMI Computation':
 else:
     # Give the page a title
     html_temp = """
-    <div style="background:#40e0d0 ;padding:10px">
-    <h2 style="color:white;text-align:center;">Diabetes Test </h2>
+    <div style="background:#000 ;padding:10px">
+    <h2 style="color:white;text-align:center;">Welcome to AIDScanner! </h2>
     </div>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
@@ -121,14 +176,15 @@ else:
         st.success(prediction)
 
 # Disclaimer
+
 disclaimer_temp = """
-<div style="background:#f9f9f9; padding:10px; margin-top:20px; border-top: 1px solid #ddd;">
-<h4 style="color:#333;text-align:center;">Disclaimer</h4>
-<p style="color:#555;text-align:center;">
-This application provides an estimation for the likelihood of diabetes based on the given parameters.
+<div style="background:#000; padding:10px; margin-top:20px; border-top: 1px solid #ddd;">
+<h4 style="color:#fff;text-align:center;">Disclaimer</h4>
+<p style="color:#fff;text-align:center;">
+This application estimates the likelihood of diabetes based on the given parameters.
 However, it is not a substitute for professional medical advice, diagnosis, or treatment.
 Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
-Do not disregard professional medical advice or delay in seeking it because of something you have read on this application.
+Please don't ignore professional medical advice or delay in seeking it because of something you have read on this application.
 Visit your hospital today to confirm your results. Thank you!
 </p>
 </div>
