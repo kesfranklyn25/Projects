@@ -32,7 +32,7 @@ gluco_dt = pickle.load(open('gluco_dt.sav', 'rb'))
 st.markdown("""
     <style>
         .eyeqlp51.st-emotion-cache-1pbsqtx.ex0cdmw0 {
-            visibility: hidden;
+            # visibility: hidden;
         }
         .st-emotion-cache-1wbqy5l {
             # visibility: hidden;
