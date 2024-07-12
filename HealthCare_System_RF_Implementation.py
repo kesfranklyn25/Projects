@@ -35,8 +35,8 @@ st.markdown("""
             # visibility: hidden;
         }
         .st-emotion-cache-1wbqy5l {
-            visibility: hidden;
-            # position: None;
+            # visibility: hidden;
+            position: None;
         }
     </style>
     """, unsafe_allow_html=True)
