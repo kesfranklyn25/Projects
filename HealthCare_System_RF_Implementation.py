@@ -200,6 +200,7 @@ from streamlit_option_menu import option_menu
 from PIL import Image
 
 # Load the image
+
 img = Image.open('C:/Users/Fatima/Desktop/HealthCare/AIDScanner_Logo.png')
 
 # Set the title page of the web app page
@@ -210,6 +211,7 @@ st.set_page_config(
 )
 
 # Display the logo at the top of the page
+st.text('')
 st.image(img, width=150)
 
 # Load models
