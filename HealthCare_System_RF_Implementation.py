@@ -201,7 +201,7 @@ from PIL import Image
 
 # Load the image
 
-img = Image.open('C:/Users/Fatima/Desktop/HealthCare/AIDScanner_Logo.png')
+img = Image.open('AIDScanner_Logo.png')
 
 # Set the title page of the web app page
 st.set_page_config(
@@ -215,8 +215,8 @@ st.text('')
 st.image(img, width=150)
 
 # Load models
-rf = pickle.load(open('C:/Users/Fatima/Desktop/HealthCare/rf.sav', 'rb'))
-gluco_dt = pickle.load(open('C:/Users/Fatima/Desktop/HealthCare/gluco_dt.sav', 'rb'))
+rf = pickle.load(open('rf.sav', 'rb'))
+gluco_dt = pickle.load(open('gluco_dt.sav', 'rb'))
 
 # Set the side menu background color
 st.markdown("""
