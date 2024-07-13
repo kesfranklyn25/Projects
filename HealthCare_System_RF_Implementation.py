@@ -212,6 +212,7 @@ st.set_page_config(
 
 # Display the logo at the top of the page
 st.text('')
+st.text('')
 st.image(img, width=150)
 
 # Load models
