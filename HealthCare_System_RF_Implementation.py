@@ -23,6 +23,14 @@ st.set_page_config(
 # Display the logo at the top of the page
 st.image(img, width=150)
 
+st.markdown("""
+    <style>
+        .eyeqlp51.st-emotion-cache-1pbsqtx.ex0cdmw0 {
+            # visibility: hidden;
+            visibility: hidden;
+        }
+        .st-emotion-cache-1wbqy5l {
+            visibility: hidden;
 # Load models
 rf = pickle.load(open('rf.sav', 'rb'))
 gluco_dt = pickle.load(open('gluco_dt.sav', 'rb'))
