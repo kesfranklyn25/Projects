@@ -16,7 +16,7 @@ img = Image.open('AIDScanner_Logo.png')
 
 # Set the title page of the web app page
 st.set_page_config(
-    page_title='AIDScanner - A Diabetes Detection App.',
+    page_title='Healthcare System - Diabetes Diagnosis',
     page_icon=img
 )
 
@@ -26,20 +26,6 @@ st.image(img, width=150)
 # Load models
 rf = pickle.load(open('rf.sav', 'rb'))
 gluco_dt = pickle.load(open('gluco_dt.sav', 'rb'))
-
-# Hide the visibility of the deploy/share and the settings menu on the top right
-# corner of the web app page
-st.markdown("""
-    <style>
-        .eyeqlp51.st-emotion-cache-1pbsqtx.ex0cdmw0 {
-            visibility: hidden;
-        }
-        .st-emotion-cache-1wbqy5l {
-            visibility: hidden;
-            position: None;
-        }
-    </style>
-    """, unsafe_allow_html=True)
 
 # Set the side menu background color
 st.markdown("""
@@ -55,13 +41,6 @@ with st.sidebar:
     selection = option_menu('Menu',
                             ['How To Use','Get Glucose Level', 'BMI Calculation', 'Diabetes Diagnosis'],
                              default_index=0)
-    # st.write('Welcome to the Healthcare System - Diabetes Prediction application! \
-    #          This app is designed to provide a quick and efficient way to assess \
-    #          the likelihood of diabetes based on readily available health parameters. \
-    #          Our goal is to leverage advanced machine learning techniques to offer \
-    #          accurate predictions, helping individuals make informed decisions \
-    #          about their health.')
-
 # Initialize bmi_value
 bmi_value = 0
 if selection == 'How To Use':
@@ -83,20 +62,12 @@ if selection == 'How To Use':
 
     for i in lst:
         st.markdown("- " + i)
-            # * 
-            # * 
-            # * 
-            # * 
-            # The How to use page is where you are currently. The Get Glucose Level\
-            # is the page that helps in estimating patients glucose level if not known\
-            # by the patient, this is inputted into the Glucose field in the\
-            # Diabetes Diagnosis page to be able to predict the diabetes status\
-            # of patients')
+           
 # Glucose Computation
 elif selection == 'Get Glucose Level':
     html_temp = """
     <div style="background:#13202c ;padding:10px">
-    <h2 style="color:white;text-align:center;">Glucose Level Computation</h2>
+    <h2 style="color:white;text-align:center;">Know Your Glucose Level</h2>
     </div>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
@@ -120,7 +91,7 @@ elif selection == 'Get Glucose Level':
 
 
 # BMI Computation
-elif selection == 'BMI Computation':
+elif selection == 'BMI Calculation':
     # Give the page a title
     html_temp = """
     <div style="background:#13202c ;padding:10px">
