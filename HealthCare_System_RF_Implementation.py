@@ -41,9 +41,14 @@ st.markdown("""
             visibility: hidden;
         }
         .st-emotion-cache-1wbqy5l {
-            visibility: hidden;
-    ,/style>
+            visibility: hidden;}
+    #------------ Active menu colour change---------------
+       .menu .nav-item .nav-link.active[data-v-5af006b8] {
+    background-color: #199be7;
+}     
+    </style>
     """, unsafe_allow_html=True)
+  #------------ Active menu colour change---------------
 # Create a sidebar menu for the models
 with st.sidebar:
     selection = option_menu('Menu',
