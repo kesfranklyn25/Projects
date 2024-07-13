@@ -5,28 +5,35 @@ Created on Fri Jul  5 16:47:02 2024
 @author: KesBes
 """
 
-# Load required libraries
+# -----------------------------------------Load required libraries------------------------------------------
 import streamlit as st
 import pickle
 from streamlit_option_menu import option_menu
 from PIL import Image
+# -----------------------------------------Load required libraries------------------------------------------
 
-# Load the image
+# --------------------------------------------------Load the image-----------------------------------------
 img = Image.open('AIDScanner_Logo.png')
+# --------------------------------------------------Load the image-----------------------------------------
 
-# Set the title page of the web app page
+# ----------------------------------Set the title page of the web app page---------------------------------
 st.set_page_config(
     page_title='Healthcare System - Diabetes Diagnosis',
     page_icon=img
 )
+# ----------------------------------Set the title page of the web app page---------------------------------
 
-# Display the logo at the top of the page
+# -----------------------------------------Display the logo at the top of the page-------------------------
 st.image(img, width=150)
-# Load models
-rf = pickle.load(open('rf.sav', 'rb'))
-gluco_dt = pickle.load(open('gluco_dt.sav', 'rb'))
+# -----------------------------------------Display the logo at the top of the page-------------------------
 
-# Set the side menu background color
+# --------------------------------------Load models--------------------------------------------------------
+rf = pickle.load(open('rf.sav', 'rb')) # Diabetes prediction model
+gluco_dt = pickle.load(open('gluco_dt.sav', 'rb')) # Glucose estimation/forecast model
+
+# --------------------------------------Load models--------------------------------------------------------
+
+# -----------------------------Set the side menu background color of the sidebar---------------------------
 st.markdown("""
     <style>
         [data-testid=stSidebar] {
@@ -34,6 +41,9 @@ st.markdown("""
         }
     </style>
     """, unsafe_allow_html=True)
+# -----------------------------Set the side menu background color of the sidebar---------------------------
+
+# ---------------------------Hide the share, deploy and settings of streamlit-----------------------------
 st.markdown("""
     <style>
         .eyeqlp51.st-emotion-cache-1pbsqtx.ex0cdmw0 {
@@ -41,21 +51,20 @@ st.markdown("""
             visibility: hidden;
         }
         .st-emotion-cache-1wbqy5l {
-            visibility: hidden;}
-    #------------ Active menu colour change---------------
-       .menu .nav-item .nav-link.active[data-v-5af006b8] {
-    background-color: #199be7;
-}     
+            visibility: hidden;}   
     </style>
     """, unsafe_allow_html=True)
-  #------------ Active menu colour change---------------
-# Create a sidebar menu for the models
+# ---------------------------Hide the share, deploy and settings of streamlit-----------------------------
+
+# ---------------------------sidebar menu for the model Starts Here--------------------------------------
 with st.sidebar:
     selection = option_menu('Menu',
                             ['How To Use','Get Glucose Level', 'BMI Calculation', 'Diabetes Diagnosis'],
                              default_index=0)
+# ---------------------------sidebar menu for the model Ends Here----------------------------------------
 # Initialize bmi_value
 bmi_value = 0
+# --------------------------- Default Page- User Manual Starts Here--------------------------------------
 if selection == 'How To Use':
     st.write('Welcome to AIDScanner (Artificial Intelligence Diabetes Scanner) App.\
              This web application helps you understand your diabetes status \
@@ -75,8 +84,9 @@ if selection == 'How To Use':
 
     for i in lst:
         st.markdown("- " + i)
-           
-# Glucose Computation
+# --------------------------- Default Page- User Manual Ends Here----------------------------------------           
+
+# ---------------------------------------Glucose Computation Starts Here---------------------------------
 elif selection == 'Get Glucose Level':
     html_temp = """
     <div style="background:#13202c ;padding:10px">
@@ -101,9 +111,9 @@ elif selection == 'Get Glucose Level':
 
     with col1:
         st.success(glucose_estimate)
+# ---------------------------------------Glucose Computation Ends Here-----------------------------------
 
-
-# BMI Computation
+# ---------------------------------------BMI Computation Starts Here-------------------------------------
 elif selection == 'BMI Calculation':
     # Give the page a title
     html_temp = """
@@ -123,8 +133,9 @@ elif selection == 'BMI Calculation':
             bmi_value = round(weight / (height * height), 2)
     with col1:
         st.success(bmi_value)
-# Code the different models
+# ---------------------------------------BMI Computation Ends Here------------------------------------
 
+# ---------------------------------------Classifier Prediction Starts Here----------------------------
 else:
     # Give the page a title
     html_temp = """
@@ -157,8 +168,8 @@ else:
 
     with col1:
         st.success(prediction)
-
-# Disclaimer
+# ---------------------------------------Classifier Prediction Ends Here------------------------------
+# --------------------------------------------Disclaimer Starts Here----------------------------------
 
 disclaimer_temp = """
 <div style="background:#13202c; padding:10px; margin-top:20px; border-top: 1px solid #ddd;">
@@ -171,3 +182,5 @@ Always seek the advice of your physician or other qualified health providers wit
 </div>
 """
 st.markdown(disclaimer_temp, unsafe_allow_html=True)
+
+# --------------------------------------------Disclaimer Ends Here----------------------------------------
