@@ -31,6 +31,7 @@ st.markdown("""
         }
         .st-emotion-cache-1wbqy5l {
             visibility: hidden;
+            """)
 # Load models
 rf = pickle.load(open('rf.sav', 'rb'))
 gluco_dt = pickle.load(open('gluco_dt.sav', 'rb'))
