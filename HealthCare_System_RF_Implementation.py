@@ -94,8 +94,7 @@ if selection == 'How To Use':
     ]
     for i in lst:
         st.markdown("- " + i)
-st.write('''If you are accessing this page view a mobile device, do note that the \
-menu is on the top left corner with an arrow (>)''')
+
 # --------------------------Default Page----------------------------------
 
 # --------------------------Glucose Page----------------------------------
