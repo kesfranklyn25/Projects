@@ -90,7 +90,8 @@ if selection == 'How To Use':
         compute your BMI for you.', 'Diabetes Diagnosis: This is the main \
         feature of the app. Here, you can get a diagnosis of your diabetes \
         status based on the information you provide. Follow the prompts\
-        to input your details and receive an assessment.'
+        to input your details and receive an assessment.',
+        'Mobile users - do note that the menu is just at the top left corner (>)'
     ]
     for i in lst:
         st.markdown("- " + i)
