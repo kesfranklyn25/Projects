@@ -143,7 +143,7 @@ elif selection == 'BMI Calculation':
     with col2:
         st.text("")
         st.text("")
-        if st.button('Compute'):
+        if st.button('Estimate'):
             bmi_value = round(weight / (height * height), 2)
     with col2:
         st.text("")
