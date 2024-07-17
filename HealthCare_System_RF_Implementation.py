@@ -117,7 +117,7 @@ elif selection == 'Get Glucose Level':
             st.write("You entered an invalid age.")
     glucose_estimate = 0
     with col2:
-        if st.button('Compute'):
+        if st.button('Estimate'):
             if Age < 16:
                 st.warning('You have to be age 16 and above!')
                 st.stop()
@@ -171,7 +171,7 @@ else:
             st.write("You entered an invalid age.")
     prediction = ''
     with col2:
-         if st.button('Compute'):
+         if st.button('Diagnose'):
              if Age < 16:
                  st.warning('You have to be age 16 and above!')
                  st.stop()
