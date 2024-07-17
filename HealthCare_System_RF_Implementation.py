@@ -158,7 +158,7 @@ else:
     </div>
     """, unsafe_allow_html=True)
     col1, col2 = st.columns(2)
-     with col1:
+    with col1:
         Glucose = st.number_input('Glucose', min_value=0.0, key='Glucose')
         BloodPressure = st.number_input('Blood Pressure Level *', min_value=0.0, key='BloodPressure')
 
