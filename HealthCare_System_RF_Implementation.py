@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri Jul  5 16:47:02 2024
-
+Version 1.0.1 
 @author: KesBes
 """
 
@@ -107,20 +107,24 @@ elif selection == 'Get Glucose Level':
     """, unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     with col1:
-        BloodPressure = st.number_input('Blood Pressure Level *', min_value\
-                                        =0.0, key='BloodPressure')
-        Age = st.number_input('Age *', min_value=16, key='Age')
+        BloodPressure = st.number_input('Blood Pressure Level *', min_value=0.0, key='BloodPressure')
     with col2:
         BMI = st.number_input('Body Mass Index *', min_value=0.0, key='BMI')
-        
+        Age = st.number_input('Age *', min_value=16, key='Age')
+        if Age < 16:
+            st.warning('You have to be age 16 and above!')
+            st.stop
+            st.write("You entered an invalid age.")
+    glucose_estimate = 0
     with col2:
-        st.text("")
-        st.text("")
         if st.button('Compute'):
-            glucose_estimate = int(gluco_dt.predict([[BloodPressure, BMI, \
-                                                      Age]]))
-            
-            st.success(glucose_estimate)
+            if Age < 16:
+                st.warning('You have to be age 16 and above!')
+                st.stop()
+            else:
+                glucose_estimate = int(gluco_dt.predict([[BloodPressure, BMI, Age]]))
+    with col1:
+        st.success(glucose_estimate)
 # --------------------------Glucose Page----------------------------------
 
 # --------------------------BMI Page--------------------------------------
@@ -154,20 +158,32 @@ else:
     </div>
     """, unsafe_allow_html=True)
     col1, col2 = st.columns(2)
-    with col1:
+     with col1:
         Glucose = st.number_input('Glucose', min_value=0.0, key='Glucose')
-        BloodPressure = st.number_input('Blood Pressure Level *', \
-                                        min_value=0.0, key='BloodPressure')
+        BloodPressure = st.number_input('Blood Pressure Level *', min_value=0.0, key='BloodPressure')
+
     with col2:
         BMI = st.number_input('Body Mass Index *', min_value=0.0, key='BMI')
         Age = st.number_input('Age *', min_value=16, key='Age')
+        if Age < 16:
+            st.warning('You have to be age 16 and above!')
+            st.stop
+            st.write("You entered an invalid age.")
     prediction = ''
     with col2:
-        
-        if st.button('Outcome'):
-            outcome = rf.predict([[Glucose, BloodPressure, BMI, Age]])
-            prediction = 'DIABETIC' if outcome[0] == 1 else 'NOT DIABETIC'
-    with col2:
+         if st.button('Compute'):
+             if Age < 16:
+                 st.warning('You have to be age 16 and above!')
+                 st.stop()
+            # st.success(f"Thank you for inputting a valid age: {Age} and BMI: {BMI}")
+             else:
+                outcome = rf.predict([[Glucose, BloodPressure, BMI, Age]])
+             if outcome[0] == 1:
+                prediction = 'DIABETIC'
+             else:
+                prediction = 'NOT DIABETIC'
+
+    with col1:
         st.success(prediction)
 # --------------------------Model Prediction------------------------------
 
