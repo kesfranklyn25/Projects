@@ -209,7 +209,7 @@ with any questions you may have regarding diabetes.
 
 
 
-=============AIDScanner Integration with Mysql DB Ends Here==============
+# =============AIDScanner Integration with Mysql DB Ends Here==============
 
 
 
