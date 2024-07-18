@@ -424,7 +424,7 @@ with any questions you may have regarding diabetes.
 </div>
 """, unsafe_allow_html=True)
 # --------------------------Disclaimer------------------------------------
----------------------------Close Alignment--------------------------------
+# ---------------------------Close Alignment--------------------------------
 
 # # -*- coding: utf-8 -*-
 # """
