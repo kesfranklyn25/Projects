@@ -1,3 +1,4 @@
+# ==================AIDScanner Integration with Mysql DB==================
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jul 18 18:17:43 2024
@@ -208,7 +209,7 @@ with any questions you may have regarding diabetes.
 
 
 
-# ======================================Trial Ends Here==========================
+# =============AIDScanner Integration with Mysql DB Ends Here==============
 
 # # -*- coding: utf-8 -*-
 # """
