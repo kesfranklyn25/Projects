@@ -11,7 +11,7 @@ import streamlit as st
 import pickle
 from streamlit_option_menu import option_menu
 from PIL import Image
-import pyodbc # Microsoft SQL connection
+# import pyodbc # Microsoft SQL connection
 
 # -------------------------Load the Logo----------------------------------
 
