@@ -16,7 +16,7 @@ import mysql.connector # used for mysql database connection
 
 # -------------------------Load the Logo----------------------------------
 
-img = Image.open('C:/Users/Fatima/Desktop/HealthCare/AIDScanner_Logo.png')
+img = Image.open('AIDScanner_Logo.png')
 
 # -------------------------Load the Logo----------------------------------
 
@@ -40,8 +40,8 @@ st.image(img, width=150)
 # --------------------------App Logo--------------------------------------
 
 # --------------------------Load Libraries--------------------------------
-rf = pickle.load(open('C:/Users/Fatima/Desktop/HealthCare/rf.sav','rb'))
-gluco_dt = pickle.load(open('C:/Users/Fatima/Desktop/HealthCare/gluco_dt.sav', 'rb'))
+rf = pickle.load(open('rf.sav','rb'))
+gluco_dt = pickle.load(open('gluco_dt.sav', 'rb'))
 
 # --------------------------Load Libraries--------------------------------
 
