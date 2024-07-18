@@ -91,17 +91,17 @@ def insert_data(action, *args):
     if action == 'Get Glucose Level':
         cursor.execute("""
             INSERT INTO tblDiagnosis (glucose, BloodPressure, BMI, Age) 
-            VALUES (?, ?, ?, ?)
+            VALUES (%$, %$, %$, %$)
         """, args)
     elif action == 'BMI Calculation':
         cursor.execute("""
             INSERT INTO tblDiagnosis (weight, height, bmi) 
-            VALUES (?, ?, ?)
+            VALUES (%$, %$, %$)
         """, args)
     elif action == 'Diabetes Diagnosis':
         cursor.execute("""
             INSERT INTO tblDiagnosis (Glucose, BloodPressure, BMI, Age, Outcome) 
-            VALUES (?, ?, ?, ?, ?)
+            VALUES (%$, %$, %$, %$, %$)
         """, args)
     conn.commit()
     cursor.close()
