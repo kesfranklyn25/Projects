@@ -5,21 +5,16 @@ Version 1.0.1
 @author: KesBes
 """
 
-
 # Load required libraries
 import streamlit as st
 import pickle
 from streamlit_option_menu import option_menu
 from PIL import Image
-# import pyodbc # Microsoft SQL connection
 import mysql.connector # used for mysql database connection
 
 # -------------------------Load the Logo----------------------------------
-
 img = Image.open('AIDScanner_Logo.png')
-
 # -------------------------Load the Logo----------------------------------
-
 
 # ------------------------Page Title--------------------------------------
 st.set_page_config(
@@ -27,7 +22,6 @@ st.set_page_config(
     page_icon=img,
     layout="wide"  # Use wide layout for better responsiveness
 )
-
 # ------------------------Page Title--------------------------------------
 
 # --------------------------App Logo--------------------------------------
@@ -36,13 +30,11 @@ st.text('')
 st.text('')
 st.text('')
 st.image(img, width=150)
-
 # --------------------------App Logo--------------------------------------
 
 # --------------------------Load Libraries--------------------------------
 rf = pickle.load(open('rf.sav','rb'))
 gluco_dt = pickle.load(open('gluco_dt.sav', 'rb'))
-
 # --------------------------Load Libraries--------------------------------
 
 # --------------------------Sidebar Colour--------------------------------
@@ -62,7 +54,6 @@ st.markdown("""
         }
     </style>
     """, unsafe_allow_html=True)
-    
 # --------------------------Sidebar Colour--------------------------------
 
 # --------------------------Sidebar Menu----------------------------------
@@ -70,41 +61,37 @@ with st.sidebar:
     selection = option_menu('Menu',
                             ['How To Use','Get Glucose Level', 'BMI Calculation', 'Diabetes Diagnosis'],
                             default_index=0)
-        
 # --------------------------Sidebar Menu----------------------------------
 
 # --------------------------Database Connection---------------------------
-
 conn = mysql.connector.connect(
-    host = 'sql8.freesqldatabase.com',
-    database = 'sql8720696',
-    user = 'sql8720696',
-    password = 'tri8XRyQdL',
-    port =  3306
-    
-    )
+    host='sql8.freesqldatabase.com',
+    database='sql8720696',
+    user='sql8720696',
+    password='tri8XRyQdL',
+    port=3306
+)
 cursor = conn.cursor()
 
 # Function to insert data into the database
 def insert_data(action, *args):
-    # cursor = conn.cursor()
     if action == 'Get Glucose Level':
         cursor.execute("""
             INSERT INTO tblDiagnosis (glucose, BloodPressure, BMI, Age) 
-            VALUES (%$, %$, %$, %$)
+            VALUES (%s, %s, %s, %s)
         """, args)
     elif action == 'BMI Calculation':
         cursor.execute("""
             INSERT INTO tblDiagnosis (weight, height, bmi) 
-            VALUES (%$, %$, %$)
+            VALUES (%s, %s, %s)
         """, args)
     elif action == 'Diabetes Diagnosis':
         cursor.execute("""
             INSERT INTO tblDiagnosis (Glucose, BloodPressure, BMI, Age, Outcome) 
-            VALUES (%$, %$, %$, %$, %$)
+            VALUES (%s, %s, %s, %s, %s)
         """, args)
     conn.commit()
-    cursor.close()
+# --------------------------Database Connection---------------------------
 
 # --------------------------Default Page----------------------------------
 bmi_value = 0
@@ -123,7 +110,6 @@ if selection == 'How To Use':
     ]
     for i in lst:
         st.markdown("- " + i)
-
 # --------------------------Default Page----------------------------------
 
 # --------------------------Glucose Page----------------------------------
@@ -145,25 +131,17 @@ elif selection == 'Get Glucose Level':
             glucose_estimate = 0
             st.stop()
             st.write("You entered an invalid age.")
-    # glucose_estimate = 0
     with col2:
         if st.button('Compute'):
-            if Age < 16:
-                st.warning('You have to be age 16 and above!')
-                glucose_estimate = 0
-                st.stop()
-            else:
+            if Age >= 16:
                 glucose_estimate = int(gluco_dt.predict([[BloodPressure, BMI, Age]]))
                 st.success(glucose_estimate)
                 # Insert data into the database
                 insert_data('Get Glucose Level', glucose_estimate, BloodPressure, BMI, Age)
-
 # --------------------------Glucose Page----------------------------------
 
 # --------------------------BMI Page--------------------------------------
-# BMI Computation
 elif selection == 'BMI Calculation':
-    prediction = ''
     st.markdown("""
     <div style="background:#000080 ;padding:10px">
     <h2 style="color:white;text-align:center;">Body Mass Index Computation</h2>
@@ -181,12 +159,10 @@ elif selection == 'BMI Calculation':
             st.success(bmi_value)
             # Insert data into the database
             insert_data('BMI Calculation', weight, height, bmi_value)
-
 # --------------------------BMI Page--------------------------------------
 
 # --------------------------Model Prediction------------------------------
 else:
-    prediction = ''
     st.markdown("""
     <div style="background:#000080 ;padding:10px">
     <h2 style="color:white;text-align:center;">Welcome to AIDScanner! </h2>
@@ -196,7 +172,6 @@ else:
     with col1:
         Glucose = st.number_input('Glucose', min_value=0.0, key='Glucose')
         BloodPressure = st.number_input('Blood Pressure Level *', min_value=0.0, key='BloodPressure')
-
     with col2:
         BMI = st.number_input('Body Mass Index *', min_value=0.0, key='BMI')
         Age = st.number_input('Age *', min_value=16, key='Age')
@@ -204,23 +179,14 @@ else:
             st.warning('You have to be age 16 and above!')
             st.stop()
             st.write("You entered an invalid age.")
-    # prediction = ''
     with col2:
           if st.button('Compute'):
-              if Age < 16:
-                  st.warning('You have to be age 16 and above!')
-                  prediction = ''
-                  st.stop()
-              else:
+              if Age >= 16:
                 outcome = rf.predict([[Glucose, BloodPressure, BMI, Age]])
-                if outcome[0] == 1:
-                    prediction = 'DIABETIC'
-                else:
-                    prediction = 'NOT DIABETIC'
+                prediction = 'DIABETIC' if outcome[0] == 1 else 'NOT DIABETIC'
                 st.success(prediction)
                 # Insert data into the database
                 insert_data('Diabetes Diagnosis', Glucose, BloodPressure, BMI, Age, prediction)
-
 # --------------------------Model Prediction------------------------------
 
 # --------------------------Disclaimer------------------------------------
@@ -238,8 +204,8 @@ with any questions you may have regarding diabetes.
 </p>
 </div>
 """, unsafe_allow_html=True)
-
 # --------------------------Disclaimer------------------------------------
+
 
 
 # ======================================Trial Ends Here==========================
