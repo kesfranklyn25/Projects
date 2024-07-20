@@ -44,6 +44,10 @@ st.markdown("""
         [data-testid=stSidebar] {
             background-color: #000080;
         }
+        footer
+        {
+            visibility: hidden
+        }
         .st-emotion-cache-1wbqy5l {
             visibility: hidden;
         }
