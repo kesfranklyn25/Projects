@@ -137,7 +137,7 @@ elif selection == 'Get Glucose Level':
             st.stop()
             st.write("You entered an invalid age.")
     with col2:
-        if st.button('Compute'):
+        if st.button('Estimate'):
             if Age >= 16:
                 glucose_estimate = int(gluco_dt.predict([[BloodPressure, BMI, Age]]))
                 st.success(glucose_estimate)
@@ -185,7 +185,7 @@ else:
             st.stop()
             st.write("You entered an invalid age.")
     with col2:
-          if st.button('Compute'):
+          if st.button('Diagnose'):
               if Age >= 16:
                 outcome = rf.predict([[Glucose, BloodPressure, BMI, Age]])
                 prediction = 'DIABETIC' if outcome[0] == 1 else 'NOT DIABETIC'
