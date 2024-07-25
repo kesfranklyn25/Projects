@@ -45,6 +45,7 @@ st.markdown("""
         .viewerBadge_container__r5tak
         {
             # bottom: 0;
+            visibility: hidden;
             display: none;
             # font-size: .875rem;
             # line-height: 1.25rem;
