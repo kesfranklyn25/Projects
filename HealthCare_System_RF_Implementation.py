@@ -40,30 +40,38 @@ gluco_dt = pickle.load(open('gluco_dt.sav', 'rb'))
 
 # --------------------------Sidebar Colour--------------------------------
 # --------------------------Hosted with Streamlit-------------------------
-st.markdown("""
-    <style>
-        a {
-        color: #000080;
-        text-decoration: inherit;
-        text-decoration-line: ;
-        text-decoration-thickness: ;
-        text-decoration-style: ;
-        text-decoration-color: ;
-        }
-        .viewerBadge_container__r5tak
-        {
-            # bottom: 0;
-            visibility: hidden;
-            display: none;
-            # font-size: .875rem;
-            # line-height: 1.25rem;
-            # position: fixed;
-            # right: 0;
-            # z-index: 50;
-        }
+# st.markdown("""
+#     <style>
+#         a {
+#         color: #000080;
+#         text-decoration: inherit;
+#         text-decoration-line: ;
+#         text-decoration-thickness: ;
+#         text-decoration-style: ;
+#         text-decoration-color: ;
+#         }
+#         .viewerBadge_container__r5tak
+#         {
+#             # bottom: 0;
+#             visibility: hidden;
+#             display: none;
+#             # font-size: .875rem;
+#             # line-height: 1.25rem;
+#             # position: fixed;
+#             # right: 0;
+#             # z-index: 50;
+#         }
     
-    </style>
-""", unsafe_allow_html=True)
+#     </style>
+# """, unsafe_allow_html=True)
+
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 # --------------------------Hosted with Streamlit-------------------------
 
