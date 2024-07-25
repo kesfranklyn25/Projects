@@ -109,7 +109,7 @@ if selection == 'How To Use':
     lst = [
         'How to Use: This guide explains how to navigate and utilize the app effectively.',
         'Get Glucose Level: Use this section to estimate your glucose level if you do not know it. Input the required information, and the app will compute it.',
-        'BMI Computation: This tool calculates your Body Mass Index (BMI) if you do not know it. Enter your height and weight, and the app will compute your BMI for you.',
+        'BMI Calculation: This tool calculates your Body Mass Index (BMI) if you do not know it. Enter your height and weight, and the app will compute your BMI for you.',
         'Diabetes Diagnosis: This is the main feature of the app. Here, you can get a diagnosis of your diabetes status based on the information you provide. Follow the prompts to input your details and receive an assessment.',
         'Mobile users - do note that the menu is just at the top left corner (>)'
     ]
