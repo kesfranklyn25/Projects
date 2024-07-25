@@ -39,6 +39,25 @@ gluco_dt = pickle.load(open('gluco_dt.sav', 'rb'))
 # -----------------------------Load Models--------------------------------
 
 # --------------------------Sidebar Colour--------------------------------
+# --------------------------Hosted with Streamlit-------------------------
+st.markdown("""
+    <style>
+        .viewerBadge_container__r5tak
+        {
+            # bottom: 0;
+            display: none;
+            # font-size: .875rem;
+            # line-height: 1.25rem;
+            # position: fixed;
+            # right: 0;
+            # z-index: 50;
+        }
+    
+    </style>
+""", unsafe_allow_html=True)
+
+# --------------------------Hosted with Streamlit-------------------------
+
 st.markdown("""
     <style>
         [data-testid=stSidebar] {
@@ -47,15 +66,6 @@ st.markdown("""
         footer
         {
             visibility: hidden
-        }
-        .viewerBadge_container__r5tak{
-        bottom: 0;
-        display: none;
-        font-size: .875rem;
-        line-height: 1.25rem;
-        position: fixed;
-        right: 0;
-        z-index: 50;
         }
         .st-emotion-cache-1wbqy5l {
             visibility: hidden;
