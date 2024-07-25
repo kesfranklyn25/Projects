@@ -49,7 +49,13 @@ st.markdown("""
             visibility: hidden
         }
         .viewerBadge_container__r5tak{
-        visibility:hidden;
+        bottom: 0;
+        display: none;
+        font-size: .875rem;
+        line-height: 1.25rem;
+        position: fixed;
+        right: 0;
+        z-index: 50;
         }
         .st-emotion-cache-1wbqy5l {
             visibility: hidden;
