@@ -42,19 +42,11 @@ gluco_dt = pickle.load(open('gluco_dt.sav', 'rb'))
 # --------------------------Hosted with Streamlit-------------------------
 st.markdown("""
     <style>
-#         a {
-#         color: #000080;
-#         text-decoration: inherit;
-#         text-decoration-line: ;
-#         text-decoration-thickness: ;
-#         text-decoration-style: ;
-#         text-decoration-color: ;
-#         }
-        .viewerBadge_container__r5tak
+#        .viewerBadge_container__r5tak
         {
             # bottom: 0;
             visibility: hidden !important;
-            display: none !important;
+            display: none;
             # font-size: .875rem;
             # line-height: 1.25rem;
             # position: fixed;
@@ -64,25 +56,27 @@ st.markdown("""
     
     </style>
 """, unsafe_allow_html=True)
+# --------------------------Hosted with Streamlit-------------------------
 
+# ----------------------Hide the streamlit default Menu-------------------
 hide_streamlit_style = """
             <style>
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
+            footer: after{
+            content: 'Copyright © AIDScanner 2024';
+            display: block;
+            }
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
-# --------------------------Hosted with Streamlit-------------------------
-
+# ----------------------Hide the streamlit default Menu-------------------
+# -------------------------------Sidebar Menu-----------------------------
 st.markdown("""
     <style>
         [data-testid=stSidebar] {
             background-color: #000080;
-        }
-        footer
-        {
-            visibility: hidden
         }
         .st-emotion-cache-1wbqy5l {
             visibility: hidden;
