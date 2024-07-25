@@ -74,6 +74,18 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 # ----------------------Hide the streamlit default Menu-------------------
+hide_menu = """
+    <style>
+        footer: after{
+        content: 'Copyright © AIDScanner 2024';
+        display: block;
+        position: relative;
+        color:#000
+    }
+    </style>
+            """
+st.markdown(hide_menu, unsafe_allow_html=True) 
+
 # -------------------------------Sidebar Menu-----------------------------
 st.markdown("""
     <style>
