@@ -66,6 +66,8 @@ hide_streamlit_style = """
             footer: after{
             content: 'Copyright © AIDScanner 2024';
             display: block;
+            position: relative;
+            color:#000
             }
             </style>
             """
