@@ -48,6 +48,9 @@ st.markdown("""
         {
             visibility: hidden
         }
+        .viewerBadge_container__r5tak{
+        visibility:hidden;
+        }
         .st-emotion-cache-1wbqy5l {
             visibility: hidden;
         }
