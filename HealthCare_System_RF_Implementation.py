@@ -166,7 +166,8 @@ elif selection == 'Get Glucose Level':
     glucose_estimate = 0
     st.markdown("""
     <div style="background:#000080 ;padding:10px">
-    <h2 style="color:white;text-align:center;">Know Your Glucose Level</h2>
+    <h2 style="color:white;text-align:center;">Get Your Glucose Level</h2>
+    <h6 style="color:white;text-align:center;">This is only an estimate!</h6>
     </div>
     """, unsafe_allow_html=True)
     col1, col2 = st.columns(2)
