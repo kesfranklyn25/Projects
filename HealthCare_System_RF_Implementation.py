@@ -69,33 +69,33 @@ with st.sidebar:
 # --------------------------Sidebar Menu----------------------------------
 
 # --------------------------MySql Database Connection----------------------
-conn = mysql.connector.connect(
-    host='sql8.freesqldatabase.com',
-    database='sql8720696',
-    user='sql8720696',
-    password='tri8XRyQdL',
-    port=3306
-)
-cursor = conn.cursor()
+# conn = mysql.connector.connect(
+#     host='sql8.freesqldatabase.com',
+#     database='sql8720696',
+#     user='sql8720696',
+#     password='tri8XRyQdL',
+#     port=3306
+# )
+# cursor = conn.cursor()
 
 # Function to insert data into the database
-def insert_data(action, *args):
-    if action == 'Get Glucose Level':
-        cursor.execute("""
-            INSERT INTO tblDiagnosis (glucose, BloodPressure, BMI, Age) 
-            VALUES (%s, %s, %s, %s)
-        """, args)
-    elif action == 'BMI Calculation':
-        cursor.execute("""
-            INSERT INTO tblDiagnosis (weight, height, bmi) 
-            VALUES (%s, %s, %s)
-        """, args)
-    elif action == 'Diabetes Diagnosis':
-        cursor.execute("""
-            INSERT INTO tblDiagnosis (Glucose, BloodPressure, BMI, Age, Outcome) 
-            VALUES (%s, %s, %s, %s, %s)
-        """, args)
-    conn.commit()
+# def insert_data(action, *args):
+#     if action == 'Get Glucose Level':
+#         cursor.execute("""
+#             INSERT INTO tblDiagnosis (glucose, BloodPressure, BMI, Age) 
+#             VALUES (%s, %s, %s, %s)
+#         """, args)
+#     elif action == 'BMI Calculation':
+#         cursor.execute("""
+#             INSERT INTO tblDiagnosis (weight, height, bmi) 
+#             VALUES (%s, %s, %s)
+#         """, args)
+#     elif action == 'Diabetes Diagnosis':
+#         cursor.execute("""
+#             INSERT INTO tblDiagnosis (Glucose, BloodPressure, BMI, Age, Outcome) 
+#             VALUES (%s, %s, %s, %s, %s)
+#         """, args)
+#     conn.commit()
 # --------------------------Database Connection---------------------------
 
 # --------------------------Default Page----------------------------------
@@ -142,7 +142,7 @@ elif selection == 'Get Glucose Level':
                 glucose_estimate = int(gluco_dt.predict([[BloodPressure, BMI, Age]]))
                 st.success(glucose_estimate)
                 # Insert data into the database
-                insert_data('Get Glucose Level', glucose_estimate, BloodPressure, BMI, Age)
+                # insert_data('Get Glucose Level', glucose_estimate, BloodPressure, BMI, Age)
 # --------------------------Glucose Page----------------------------------
 
 # --------------------------BMI Page--------------------------------------
@@ -163,7 +163,7 @@ elif selection == 'BMI Calculation':
             bmi_value = round(weight / (height * height), 2)
             st.success(bmi_value)
             # Insert data into the database
-            insert_data('BMI Calculation', weight, height, bmi_value)
+            # insert_data('BMI Calculation', weight, height, bmi_value)
 # --------------------------BMI Page--------------------------------------
 
 # --------------------------Model Prediction------------------------------
@@ -191,7 +191,7 @@ else:
                 prediction = 'DIABETIC' if outcome[0] == 1 else 'NOT DIABETIC'
                 st.success(prediction)
                 # Insert data into the database
-                insert_data('Diabetes Diagnosis', Glucose, BloodPressure, BMI, Age, prediction)
+                # insert_data('Diabetes Diagnosis', Glucose, BloodPressure, BMI, Age, prediction)
 # --------------------------Model Prediction------------------------------
 
 # --------------------------Disclaimer------------------------------------
