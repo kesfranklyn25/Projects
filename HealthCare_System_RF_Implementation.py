@@ -42,6 +42,7 @@ gluco_dt = pickle.load(open('gluco_dt.sav', 'rb'))
 # --------------------------Hosted with Streamlit-------------------------
 st.markdown("""
     <style>
+        #a {a href = ''}
         .viewerBadge_container__r5tak
         {
             # bottom: 0;
