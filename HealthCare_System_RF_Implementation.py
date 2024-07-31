@@ -35,7 +35,7 @@ st.image(img, width=150)
 
 # -----------------------------Load Models--------------------------------
 rf = pickle.load(open('rf.sav','rb'))
-gluco_dt = pickle.load(open('gluco_dt.sav', 'rb'))
+gluco_dt = pickle.load(open('glucose_estimation_rfr.sav', 'rb'))
 # -----------------------------Load Models--------------------------------
 
 # --------------------------Sidebar Colour--------------------------------
