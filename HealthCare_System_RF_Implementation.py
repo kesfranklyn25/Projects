@@ -122,7 +122,7 @@ conn = mysql.connector.connect(
 )
 cursor = conn.cursor()
 
-Function to insert data into the database
+# Function to insert data into the database
 def insert_data(action, *args):
     if action == 'Get Glucose Level':
         cursor.execute("""
