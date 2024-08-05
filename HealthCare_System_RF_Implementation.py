@@ -118,7 +118,7 @@ conn = mysql.connector.connect(
     database='matnafoo_AIDScanner',
     user='matnafoo_kes',
     password='My#ame@2505',
-    # port=3306
+    port=3306
 )
 cursor = conn.cursor()
 
