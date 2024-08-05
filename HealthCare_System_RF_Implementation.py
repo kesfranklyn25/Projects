@@ -113,33 +113,33 @@ with st.sidebar:
 # --------------------------Sidebar Menu----------------------------------
 
 # --------------------------MySql Database Connection----------------------
-# conn = mysql.connector.connect(
-#     host='sql8.freesqldatabase.com',
-#     database='sql8720696',
-#     user='sql8720696',
-#     password='tri8XRyQdL',
-#     port=3306
-# )
-# cursor = conn.cursor()
+conn = mysql.connector.connect(
+    host='nsa.whogohost.com',
+    database='matnafoo_AIDScanner',
+    user='matnafoo_kes',
+    password='My#ame@2505',
+    # port=3306
+)
+cursor = conn.cursor()
 
-# Function to insert data into the database
-# def insert_data(action, *args):
-#     if action == 'Get Glucose Level':
-#         cursor.execute("""
-#             INSERT INTO tblDiagnosis (glucose, BloodPressure, BMI, Age) 
-#             VALUES (%s, %s, %s, %s)
-#         """, args)
-#     elif action == 'BMI Calculation':
-#         cursor.execute("""
-#             INSERT INTO tblDiagnosis (weight, height, bmi) 
-#             VALUES (%s, %s, %s)
-#         """, args)
-#     elif action == 'Diabetes Diagnosis':
-#         cursor.execute("""
-#             INSERT INTO tblDiagnosis (Glucose, BloodPressure, BMI, Age, Outcome) 
-#             VALUES (%s, %s, %s, %s, %s)
-#         """, args)
-#     conn.commit()
+Function to insert data into the database
+def insert_data(action, *args):
+    if action == 'Get Glucose Level':
+        cursor.execute("""
+            INSERT INTO tblDiagnosis (glucose, BloodPressure, BMI, Age) 
+            VALUES (%s, %s, %s, %s)
+        """, args)
+    elif action == 'BMI Calculation':
+        cursor.execute("""
+            INSERT INTO tblDiagnosis (weight, height, bmi) 
+            VALUES (%s, %s, %s)
+        """, args)
+    elif action == 'Diabetes Diagnosis':
+        cursor.execute("""
+            INSERT INTO tblDiagnosis (Glucose, BloodPressure, BMI, Age, Outcome) 
+            VALUES (%s, %s, %s, %s, %s)
+        """, args)
+    conn.commit()
 # --------------------------Database Connection---------------------------
 
 # --------------------------Default Page----------------------------------
