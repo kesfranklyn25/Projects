@@ -114,7 +114,7 @@ with st.sidebar:
 
 # --------------------------MySql Database Connection----------------------
 conn = mysql.connector.connect(
-    host='nsa.whogohost.com',
+    host='localhost',
     database='matnafoo_AIDScanner',
     user='matnafoo_kes',
     password='My#ame@2505',
