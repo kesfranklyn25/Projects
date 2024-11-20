@@ -1,0 +1,3 @@
+Main Page = Hospital.py
+Database Connection = dbconnect.py
+Authentication = login.py
