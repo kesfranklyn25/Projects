@@ -1,0 +1,8 @@
+Main Page = Hospital.py
+Database Connection = dbconnect.py
+Authentication = login.py
+Dashboard = pat_dashboard.py
+Search Record = pat_search.py
+Update Record = pat_update.py
+Register Patient = registration.py
+Staff Creation = staffCreation.py
