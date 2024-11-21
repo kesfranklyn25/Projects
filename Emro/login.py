@@ -106,7 +106,7 @@ def login():
                     st.session_state["authenticated"] = True
                     st.session_state["username"] = username  # Cache the username
                     st.session_state["page"] = "hospital_portal"
-                    # st.experimental_rerun()  # Redirect to the hospital portal page
+                    st.rerun()  # Redirect to the hospital portal page
                 else:
                     st.error("Invalid username or password.")
 
