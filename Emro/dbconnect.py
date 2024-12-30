@@ -41,10 +41,10 @@ import streamlit as st
 def init_connection():
     connection_string = (
         f"DRIVER={{ODBC Driver 17 for SQL Server}};"
-        f"SERVER={st.secrets['database']['server']};"
-        f"DATABASE={st.secrets['database']['database']};"
-        f"UID={st.secrets['database']['username']};"
-        f"PWD={st.secrets['database']['password']}"
+        f"SERVER={st.secrets['database']['matnafoods.com.ng']};"
+        f"DATABASE={st.secrets['database']['matnafoo_CBH']};"
+        f"UID={st.secrets['database']['matnafoo_kesbes']};"
+        f"PWD={st.secrets['database']['My#ame@2505']}"
     )
     try:
         conn = pyodbc.connect(connection_string, timeout=10)
