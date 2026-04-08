@@ -160,7 +160,7 @@ if selection == 'Dashboard':
 # ==========================Dasboard set as default=======================
 # --------------------------Default Page----------------------------------
 bmi_value = 0
-elif selection == 'How To Use':
+if selection == 'How To Use':
     st.write("""
     ##### Welcome to AIDScanner (Artificial Intelligence Diabetes Scanner) App
     This web application helps you understand your diabetes status through \
