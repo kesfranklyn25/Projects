@@ -108,7 +108,7 @@ st.markdown("""
 # Included dashboard menu, it can be removed later after serving its purpose...
 with st.sidebar:
     selection = option_menu('Menu',
-                            ['Dashboard','How To Use','Get Glucose Level', 'BMI Calculation', 'Diabetes Diagnosis'],
+                            ['Looker Studio','Dashboard','How To Use','Get Glucose Level', 'BMI Calculation', 'Diabetes Diagnosis'],
                             default_index=0)
 # --------------------------Sidebar Menu----------------------------------
 
@@ -144,7 +144,15 @@ with st.sidebar:
 # ==========================Dasboard set as default=======================
 # --------------------------Dashboard Page----------------------------------
 bmi_value = 0
-if selection == 'Dashboard':
+# Looker Studio menu addition
+if selection == 'Looker Studio':
+    st.markdown(
+        """
+        <iframe width="600" height="450" src="https://lookerstudio.google.com/embed/reporting/3f1d1583-5dbf-41d6-94e6-75d176c78f94/page/eqauF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        """, 
+        unsafe_allow_html=True
+    )
+elif selection == 'Dashboard':
     # st.title("Marketing Dashboard")
 
     st.markdown(
