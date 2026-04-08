@@ -34,21 +34,21 @@ st.image(img, width=150)
 # --------------------------App Logo--------------------------------------
 # =====================Marketing Analysis Dashboard=======================
 
-# import streamlit as st
+# # import streamlit as st
 
-st.title("Marketing Dashboard")
+# st.title("Marketing Dashboard")
 
-st.markdown(
-    """
-      <iframe
-      src="https://dbc-0f3de274-eae6.cloud.databricks.com/embed/dashboardsv3/01f13296d5a6158eb6390c543b8effe7?o=7474648935039222&f_863cd3e8%7Eplatform=_all_"
-      width="100%"
-      height="600"
-      frameborder="0">
-    </iframe>
-    """,
-    unsafe_allow_html=True
-)
+# st.markdown(
+#     """
+#       <iframe
+#       src="https://dbc-0f3de274-eae6.cloud.databricks.com/embed/dashboardsv3/01f13296d5a6158eb6390c543b8effe7?o=7474648935039222&f_863cd3e8%7Eplatform=_all_"
+#       width="100%"
+#       height="600"
+#       frameborder="0">
+#     </iframe>
+#     """,
+#     unsafe_allow_html=True
+# )
 # =====================Marketing Analysis Dashboard=======================
 # -----------------------------Load Models--------------------------------
 rf = pickle.load(open('rf.sav','rb'))
@@ -123,9 +123,10 @@ st.markdown("""
 # --------------------------Sidebar Colour--------------------------------
 
 # --------------------------Sidebar Menu----------------------------------
+# Included dashboard menu, it can be removed later after serving its purpose...
 with st.sidebar:
     selection = option_menu('Menu',
-                            ['How To Use','Get Glucose Level', 'BMI Calculation', 'Diabetes Diagnosis'],
+                            ['Dashboard','How To Use','Get Glucose Level', 'BMI Calculation', 'Diabetes Diagnosis'],
                             default_index=0)
 # --------------------------Sidebar Menu----------------------------------
 
@@ -158,7 +159,23 @@ with st.sidebar:
 #         """, args)
 #     conn.commit()
 # --------------------------Database Connection---------------------------
+# ==========================Dasboard set as default=======================
+# --------------------------Dashboard Page----------------------------------
+if selection == 'Dashboard':
+    st.title("Marketing Dashboard")
 
+    st.markdown(
+        """
+        <iframe
+        src="https://dbc-0f3de274-eae6.cloud.databricks.com/embed/dashboardsv3/01f13296d5a6158eb6390c543b8effe7?o=7474648935039222&f_863cd3e8%7Eplatform=_all_"
+        width="100%"
+        height="800"
+        frameborder="0">
+        </iframe>
+        """,
+        unsafe_allow_html=True
+    )
+# ==========================Dasboard set as default=======================
 # --------------------------Default Page----------------------------------
 bmi_value = 0
 if selection == 'How To Use':
