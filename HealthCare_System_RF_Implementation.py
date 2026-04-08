@@ -143,6 +143,7 @@ with st.sidebar:
 # --------------------------Database Connection---------------------------
 # ==========================Dasboard set as default=======================
 # --------------------------Dashboard Page----------------------------------
+bmi_value = 0
 if selection == 'Dashboard':
     # st.title("Marketing Dashboard")
 
@@ -159,7 +160,7 @@ if selection == 'Dashboard':
     )
 # ==========================Dasboard set as default=======================
 # --------------------------Default Page----------------------------------
-bmi_value = 0
+
 elif selection == 'How To Use':
     st.write("""
     ##### Welcome to AIDScanner (Artificial Intelligence Diabetes Scanner) App
