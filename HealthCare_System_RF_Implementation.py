@@ -32,7 +32,15 @@ st.text('')
 st.text('')
 st.image(img, width=150)
 # --------------------------App Logo--------------------------------------
+# =====================Marketing Analysis Dashboard=======================
 
+<iframe
+  src="https://dbc-0f3de274-eae6.cloud.databricks.com/embed/dashboardsv3/01f13296d5a6158eb6390c543b8effe7?o=7474648935039222&f_863cd3e8%7Eplatform=_all_"
+  width="100%"
+  height="600"
+  frameborder="0">
+</iframe>
+# =====================Marketing Analysis Dashboard=======================
 # -----------------------------Load Models--------------------------------
 rf = pickle.load(open('rf.sav','rb'))
 gluco_dt = pickle.load(open('glucose_estimation_rfr.sav', 'rb'))
