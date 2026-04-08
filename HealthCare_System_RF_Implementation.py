@@ -34,12 +34,17 @@ st.image(img, width=150)
 # --------------------------App Logo--------------------------------------
 # =====================Marketing Analysis Dashboard=======================
 
-<iframe
-  src="https://dbc-0f3de274-eae6.cloud.databricks.com/embed/dashboardsv3/01f13296d5a6158eb6390c543b8effe7?o=7474648935039222&f_863cd3e8%7Eplatform=_all_"
-  width="100%"
-  height="600"
-  frameborder="0">
-</iframe>
+import { DatabricksDashboard } from "@databricks/aibi-client";
+  
+const dashboard = new DatabricksDashboard({
+  instanceUrl: "https://dbc-0f3de274-eae6.cloud.databricks.com",
+  workspaceId: "7474648935039222",
+  dashboardId: "01f13296d5a6158eb6390c543b8effe7",
+  token: "<<CREATED_BY_YOUR_SERVER>>", // This token should be minted by your server
+  container: document.getElementById("dashboard-container"),
+});
+
+dashboard.initialize();
 # =====================Marketing Analysis Dashboard=======================
 # -----------------------------Load Models--------------------------------
 rf = pickle.load(open('rf.sav','rb'))
