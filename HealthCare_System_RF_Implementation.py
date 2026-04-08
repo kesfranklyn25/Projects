@@ -144,7 +144,7 @@ with st.sidebar:
 # ==========================Dasboard set as default=======================
 # --------------------------Dashboard Page----------------------------------
 if selection == 'Dashboard':
-    st.title("Marketing Dashboard")
+    # st.title("Marketing Dashboard")
 
     st.markdown(
         """
