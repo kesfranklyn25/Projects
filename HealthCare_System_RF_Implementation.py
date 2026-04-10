@@ -148,6 +148,8 @@ bmi_value = 0
 if selection == 'Looker Studio':
     st.markdown(
         """
+         Please use the "Dashboard" menu to access the dashboard for this task and when asked for authentication, use Databricks login details
+        to access the dashboard
         <iframe width="600" height="450" src="https://lookerstudio.google.com/embed/reporting/3f1d1583-5dbf-41d6-94e6-75d176c78f94/page/eqauF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
         """, 
         unsafe_allow_html=True
@@ -157,8 +159,7 @@ elif selection == 'Dashboard':
 
     st.markdown(
         """
-        Please use the "Dashboard" menu to access the dashboard for this task and when asked for authentication, use Databricks login details
-        to access the dashboard
+       
         <iframe
           src="https://dbc-0f3de274-eae6.cloud.databricks.com/embed/dashboardsv3/01f13296d5a6158eb6390c543b8effe7?o=7474648935039222&f_863cd3e8%7Eplatform=_all_"
           width="100%"
