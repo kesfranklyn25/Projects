@@ -157,6 +157,8 @@ elif selection == 'Dashboard':
 
     st.markdown(
         """
+        Please use the "Dashboard" menu to access the dashboard for this task and when asked for authentication, use Databricks login details
+        to access the dashboard
         <iframe
           src="https://dbc-0f3de274-eae6.cloud.databricks.com/embed/dashboardsv3/01f13296d5a6158eb6390c543b8effe7?o=7474648935039222&f_863cd3e8%7Eplatform=_all_"
           width="100%"
