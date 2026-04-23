@@ -108,7 +108,8 @@ st.markdown("""
 # Included dashboard menu, it can be removed later after serving its purpose...
 with st.sidebar:
     selection = option_menu('Menu',
-                            ['Looker Studio','Dashboard','How To Use','Get Glucose Level', 'BMI Calculation', 'Diabetes Diagnosis'],
+                            # ['Looker Studio','Dashboard','How To Use','Get Glucose Level', 'BMI Calculation', 'Diabetes Diagnosis'],
+                            ['How To Use','Get Glucose Level', 'BMI Calculation', 'Diabetes Diagnosis'],
                             default_index=0)
 # --------------------------Sidebar Menu----------------------------------
 
@@ -145,33 +146,33 @@ with st.sidebar:
 # --------------------------Dashboard Page----------------------------------
 bmi_value = 0
 # Looker Studio menu addition
-if selection == 'Looker Studio':
-    st.markdown(
-        """
-         Please use the "Dashboard" menu to access the dashboard for this task and when asked for authentication, use Databricks login details
-        <iframe width="600" height="450" src="https://lookerstudio.google.com/embed/reporting/3f1d1583-5dbf-41d6-94e6-75d176c78f94/page/eqauF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-        """, 
-        unsafe_allow_html=True
-    )
-elif selection == 'Dashboard':
-    # st.title("Marketing Dashboard")
+# if selection == 'Looker Studio':
+#     st.markdown(
+#         """
+#          Please use the "Dashboard" menu to access the dashboard for this task and when asked for authentication, use Databricks login details
+#         <iframe width="600" height="450" src="https://lookerstudio.google.com/embed/reporting/3f1d1583-5dbf-41d6-94e6-75d176c78f94/page/eqauF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+#         """, 
+#         unsafe_allow_html=True
+#     )
+# elif selection == 'Dashboard':
+#     # st.title("Marketing Dashboard")
 
-    st.markdown(
-        """
+#     st.markdown(
+#         """
        
-        <iframe
-          src="https://dbc-0f3de274-eae6.cloud.databricks.com/embed/dashboardsv3/01f13296d5a6158eb6390c543b8effe7?o=7474648935039222&f_863cd3e8%7Eplatform=_all_"
-          width="100%"
-          height="600"
-          frameborder="0">
-</iframe>
-        """,
-        unsafe_allow_html=True
-    )
+#         <iframe
+#           src="https://dbc-0f3de274-eae6.cloud.databricks.com/embed/dashboardsv3/01f13296d5a6158eb6390c543b8effe7?o=7474648935039222&f_863cd3e8%7Eplatform=_all_"
+#           width="100%"
+#           height="600"
+#           frameborder="0">
+# </iframe>
+#         """,
+#         unsafe_allow_html=True
+#     )
 # ==========================Dasboard set as default=======================
 # --------------------------Default Page----------------------------------
 
-elif selection == 'How To Use':
+if selection == 'How To Use':
     st.write("""
     ##### Welcome to AIDScanner (Artificial Intelligence Diabetes Scanner) App
     This web application helps you understand your diabetes status through \
